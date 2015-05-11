@@ -1,0 +1,27 @@
+{
+  "name": "SolutionSniffer",
+  "version": "1.0.0",
+  "description": "Sniffs for whiffs",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    ".net",
+    "solution",
+    "project",
+    "smells"
+  ],
+  "author": "Will Grange",
+  "license": "GNU",
+  "dependencies": {
+    "fs": "0.0.2",
+    "gulp": "^3.8.11",
+    "node-dir": "^0.1.8",
+    "walkdir": "0.0.9",
+    "xml2js": "^0.4.8"
+  },
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  }
+}
