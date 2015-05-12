@@ -15,6 +15,7 @@
   "author": "Will Grange",
   "license": "GNU",
   "dependencies": {
+    "eyes": "^0.1.8",
     "fs": "0.0.2",
     "gulp": "^3.8.11",
     "node-dir": "^0.1.8",

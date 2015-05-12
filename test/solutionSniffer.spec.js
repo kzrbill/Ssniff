@@ -3,33 +3,35 @@ var SolutionSniffer = module.SolutionSniffer;
 
 describe('Solution sniffer', function() {
 
-	var sniffer;
+	var solutionSniffer;
+	var smellResult;
 
 	beforeEach(function(){
-		sniffer = new SolutionSniffer();
-	});
 
-	it("can create instances", function() {
+		solutionSniffer = new SolutionSniffer();
 
-		expect(sniffer).toBeDefined();
-	});
-
-
-	it("can run sniffs", function() {
-
-		var ranSniff = false;
-
-		function SomeSmell()
-		{
-			this.sniff = function(){
-				ranSniff = true;
+		function SmellObserver() {
+			this.onSniffResultFound = function(_smellResult) {
+				smellResult = _smellResult;
 			}
 		}
 
-		sniffer.addSmell(new SomeSmell());
+		solutionSniffer.sniffForSmells(new SmellObserver());
+	});
 
-		sniffer.sniffForSmells();
 
-    expect(ranSniff).toBe(true);
-  });
+	describe('when sniff for smells', function() {
+
+		it("has a result", function() {
+			expect(smellResult).toBeDefined();
+		});
+
+
+		it("the result provides a string for output", function() {
+
+			console.log(smellResult.toString());
+			expect(smellResult.toString().length).toBeGreaterThan(0);
+		});
+	});
+
 });
