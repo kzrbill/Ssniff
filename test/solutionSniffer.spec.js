@@ -1,14 +1,15 @@
-var module = require('../lib/solutionSniffer.js');
-var SolutionSniffer = module.SolutionSniffer;
+var SolutionSniffer = require('../lib/solutionSniffer.js').SolutionSniffer;
+var Solution = require('../lib/solution.js').Solution;
 
-describe('Solution sniffer', function() {
+describe('Solution', function() {
 
 	var solutionSniffer;
 	var smellResult;
 
 	beforeEach(function(){
 
-		solutionSniffer = new SolutionSniffer();
+		var solution = new Solution("Some solution");
+		var solutionSniffer = new SolutionSniffer(solution);
 
 		function SmellObserver() {
 			this.onSniffResultFound = function(_smellResult) {
@@ -19,16 +20,14 @@ describe('Solution sniffer', function() {
 		solutionSniffer.sniffForSmells(new SmellObserver());
 	});
 
-
 	describe('when sniff for smells', function() {
 
 		it("has a result", function() {
 			expect(smellResult).toBeDefined();
 		});
 
-
 		it("the result provides a string for output", function() {
-
+			
 			console.log(smellResult.toString());
 			expect(smellResult.toString().length).toBeGreaterThan(0);
 		});
