@@ -7,15 +7,19 @@ var eyes = require('eyes');
 var errorInspector = eyes.inspector({
     styles: {
         all: 'red'
-    },
-    pretty: false
+    }
 });
 
 var okInspector = eyes.inspector({
     styles: {
         all: 'green'
-    },
-    pretty: false
+    }
+});
+
+var warningInspector = eyes.inspector({
+    styles: {
+        all: 'cyan'
+    }
 });
 
 function SniffResultsOutput() {
@@ -25,6 +29,10 @@ function SniffResultsOutput() {
 
 	this.onOKResultFound = function(smellResult) {
 		okInspector(smellResult.viewObject()); 
+	}
+
+	this.onWarningResultFound = function(smellResult) {
+		warningInspector(smellResult.viewObject()); 
 	}
 }
 

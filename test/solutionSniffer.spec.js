@@ -19,6 +19,10 @@ describe('Solution', function() {
 			this.onOKResultFound = function(_smellResult) {
 				smellResult = _smellResult;
 			}
+
+			this.onWarningResultFound = function(_smellResult) {
+				smellResult = _smellResult;
+			}
 		}
 
 		solutionSniffer.sniffForSmells(new SmellObserver());
