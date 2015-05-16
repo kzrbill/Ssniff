@@ -20,7 +20,7 @@
     "gulp": "^3.8.11",
     "node-dir": "^0.1.8",
     "walkdir": "0.0.9",
-    "xml2js": "^0.4.8"
+    "xml2js": "^0.4.8",
   },
   "devDependencies": {
     "jasmine-node": "^1.14.5"

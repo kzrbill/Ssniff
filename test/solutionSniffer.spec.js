@@ -8,7 +8,7 @@ describe('Solution', function() {
 
 	beforeEach(function(){
 
-		var solution = new Solution("Some solution");
+		var solution = new Solution(__dirname + "/test_solutions/stinked_solution/SolutionOfSmells.sln");
 		var solutionSniffer = new SolutionSniffer(solution);
 
 		function SmellObserver() {
