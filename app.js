@@ -24,6 +24,7 @@ var warningInspector = eyes.inspector({
     }
 });
 
+
 function SniffResultsOutput() {
 	this.onSmellResultFound = function(smellResult) {
 
@@ -47,7 +48,30 @@ function SniffResultsOutput() {
 	}
 }
 
-var solution = new Solution(__dirname + "/test/test_solutions/stinked_solution/");
-var solutionSniffer = new SolutionSniffer(solution);
+var solutionPath = __dirname + "/test/test_solutions/stinked_solution/"
 
-solutionSniffer.sniffForSmells(new SniffResultsOutput());
+var args = process.argv.slice(2);
+
+if (args.length >= 1) {
+	solutionPath = args[0];
+} else {
+	console.log("No path supplied so using test solution path: " + solutionPath);
+}
+
+function SolutionSnifferStarter()
+{
+	this.onSolutionFound = function(validationSolution)
+	{
+		var solution = new Solution(validationSolution.dirPath);
+		var solutionSniffer = new SolutionSniffer(solution);
+		solutionSniffer.sniffForSmells(new SniffResultsOutput());
+	}
+
+	this.onSolutionNotFound = function(validationSolution)
+	{
+		errorInspector("No solution found at path: " + validationSolution.dirPath);
+	}
+}
+
+new Solution(solutionPath).checkSolutionExists(new SolutionSnifferStarter());
+
