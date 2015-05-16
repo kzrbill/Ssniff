@@ -4,9 +4,27 @@ var Solution = require(__dirname + '/lib/solution.js').Solution;
 
 var eyes = require('eyes');
 
+var errorInspector = eyes.inspector({
+    styles: {
+        all: 'red'
+    },
+    pretty: false
+});
+
+var okInspector = eyes.inspector({
+    styles: {
+        all: 'green'
+    },
+    pretty: false
+});
+
 function SniffResultsOutput() {
-	this.onSniffResultFound = function(smellResult) {
-		eyes.inspect(smellResult.viewObject()); 
+	this.onSmellResultFound = function(smellResult) {
+		errorInspector(smellResult.viewObject()); 
+	}
+
+	this.onOKResultFound = function(smellResult) {
+		okInspector(smellResult.viewObject()); 
 	}
 }
 

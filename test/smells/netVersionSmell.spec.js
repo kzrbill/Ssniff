@@ -30,7 +30,7 @@ describe('NetVersionSmell', function() {
 			var result = null;
 
 			function SniffResultObserver() {
-				this.onSniffResultFound = function(_result) {
+				this.onSmellResultFound = function(_result) {
 					result = _result;
 				}
 			}
@@ -47,7 +47,7 @@ describe('NetVersionSmell', function() {
 			var result = null;
 
 			function SniffResultObserver() {
-				this.onSniffResultFound = function(_result) {
+				this.onOKResultFound = function(_result) {
 					result = _result;
 				}
 			}

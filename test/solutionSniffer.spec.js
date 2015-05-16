@@ -8,11 +8,15 @@ describe('Solution', function() {
 
 	beforeEach(function(){
 
-		var solution = new Solution(__dirname + "/test_solutions/stinked_solution/SolutionOfSmells.sln");
+		var solution = new Solution(__dirname + "/test_solutions/stinked_solution/");
 		var solutionSniffer = new SolutionSniffer(solution);
 
 		function SmellObserver() {
-			this.onSniffResultFound = function(_smellResult) {
+			this.onSmellResultFound = function(_smellResult) {
+				smellResult = _smellResult;
+			}
+
+			this.onOKResultFound = function(_smellResult) {
 				smellResult = _smellResult;
 			}
 		}
