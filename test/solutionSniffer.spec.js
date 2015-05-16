@@ -1,7 +1,7 @@
 var SolutionSniffer = require('../lib/solutionSniffer.js').SolutionSniffer;
 var Solution = require('../lib/solution.js').Solution;
 
-describe('Solution', function() {
+describe('SolutionSniffer', function() {
 
 	var solutionSniffer;
 	var smellResult;

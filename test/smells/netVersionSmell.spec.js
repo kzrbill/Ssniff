@@ -1,4 +1,4 @@
-var NetVersionSmell = require('../../lib/smells/netVersionSmell.js').NetVersionSmell;
+var NetVersionSmellFinder = require('../../lib/smells/netVersionSmellFinder.js').NetVersionSmellFinder;
 var Solution = require('../../lib/solution.js').Solution;
 var NetVersionMismatchResultNotOK = require('../../lib/sniffResults.js').NetVersionMismatchResultNotOK;
 
@@ -26,7 +26,7 @@ describe('NetVersionSmell', function() {
 			
 			var solution = new Solution(__dirname + "/../test_solutions/stinked_solution/");
 
-			var smell = new NetVersionSmell(solution);
+			var smell = new NetVersionSmellFinder(solution);
 			var result = null;
 
 			function SniffResultObserver() {
