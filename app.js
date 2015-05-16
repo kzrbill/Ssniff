@@ -2,6 +2,8 @@
 var SolutionSniffer = require(__dirname + '/lib/solutionSniffer.js').SolutionSniffer;
 var Solution = require(__dirname + '/lib/solution.js').Solution;
 
+
+var notifier = require('node-notifier');
 var eyes = require('eyes');
 
 var errorInspector = eyes.inspector({
@@ -24,7 +26,16 @@ var warningInspector = eyes.inspector({
 
 function SniffResultsOutput() {
 	this.onSmellResultFound = function(smellResult) {
-		errorInspector(smellResult.viewObject()); 
+
+		var viewObject = smellResult.viewObject();
+
+		errorInspector(viewObject);
+
+		notifier.notify({
+		  'title': viewObject.description,
+		  'message': viewObject.message
+		});
+		 
 	}
 
 	this.onOKResultFound = function(smellResult) {
