@@ -24,39 +24,12 @@ describe('AssemblyVersionSmellFinder', function() {
 
 	xdescribe('when we sniff a solution', function() {
 
-		xit('finds net mismatch in stinked solution', function() {
-			
-			var solution = new Solution(__dirname + "/../test_solutions/stinked_solution/");
-
-			var smell = new NetVersionSmellFinder(solution);
-			var result = null;
-
-			function SniffResultObserver() {
-				this.onSmellResultFound = function(_result) {
-					result = _result;
-				}
-			}
-
-			smell.sniff(new SniffResultObserver());
-
-			expect(result.equals(new NetVersionMismatchResultNotOK())).toBeTruthy();
+		xit('finds assembly mismatch in stinked solution', function() {
+		
 		});
 
-		xit('does not find net mismatch in clean solution', function() {
-			
-			var solution = new Solution(__dirname + "/../test_solutions/clean_solution");
-			var smell = new NetVersionSmell(solution);
-			var result = null;
-
-			function SniffResultObserver() {
-				this.onOKResultFound = function(_result) {
-					result = _result;
-				}
-			}
-
-			smell.sniff(new SniffResultObserver());
-
-			expect(result.equals(new NetVersionMismatchResultNotOK())).toBeTruthy();
+		xit('does not find assembly mismatch in clean solution', function() {
+		
 		}); 
 	});
 });
