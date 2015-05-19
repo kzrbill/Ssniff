@@ -30,7 +30,7 @@ describe('DifferenceMachine', function() {
 
 	var someObjectC =
 	{
-		Name : "SomeObjectB",
+		Name : "SomeObjectC",
 		SomeSpecialProperty : 2
 	}
 
@@ -54,7 +54,7 @@ describe('DifferenceMachine', function() {
 
 	describe('when different objects supplied', function() {
 
-		it('should have difference', function() {
+		xit('should have difference', function() {
 
 			diffMachine = diffMachine.add(someObjectA)
 									 .add(someObjectB)
