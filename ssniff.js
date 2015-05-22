@@ -11,6 +11,7 @@ if (args.length >= 1) {
 	solutionPath = args[0];
 } else {
 	console.log("No path supplied so using test solution path: " + solutionPath);
+	console.log("\n");
 }
 
 var ouput = new SniffOutput();
